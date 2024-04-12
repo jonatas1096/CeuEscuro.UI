@@ -52,9 +52,61 @@ namespace CeuEscuro.DAL
         }
 
 
-        //
+        //Criar um novo usuário
+        public void CreateUser(UsuarioDTO usuario)
+        {
+            try
+            {
+                Conectar();
+
+                cmd = new MySqlCommand("INSERTO INTO Usuario (Nome, Email, Senha, DataNascUsuario, TipoUsuario_Id) VALUES (@Nome, @Email, @Senha, @DataNascUsuario, @TipoUsuario_Id)", conn);
+
+                cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
+                cmd.Parameters.AddWithValue("@Email", usuario.Email);
+                cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
+                cmd.Parameters.AddWithValue("@DataNascUsuario", usuario.DataNascUsuario);
+                cmd.Parameters.AddWithValue("@TipoUsuario_Id", usuario.TipoUsuario_Id); 
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+        }
 
 
+
+        //Read
+        public List<UsuarioDTO> GetUsers() {
+
+            try
+            {
+                Conectar();
+
+                cmd = new MySqlCommand("SELECT usuario.Id, Nome, Email, Senha, DataNascUsuario, Descricao FROM Usuario INNER JOIN tipousuario ON Usuario.Id like tipousuario.Id ORDER BY Usuario.Nome ASC;", conn);
+                dr = cmd.ExecuteReader();
+
+               
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+            return null;
+        }
 
     }
 }
