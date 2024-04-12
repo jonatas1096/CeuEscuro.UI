@@ -12,11 +12,9 @@
 }
 
 #container {
-    height: 50vh;
     width: 100%;
     margin: 0;
     padding: 0;
-    border: solid red 2px; 
 }
 
 ul {
