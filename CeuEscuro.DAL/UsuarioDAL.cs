@@ -28,7 +28,6 @@ namespace CeuEscuro.DAL
 
                 if (dr.Read()) 
                 {
-                    Console.WriteLine("leu");
                     obj = new UsuarioDTO();
 
                     obj.Email = dr["Email"].ToString();
