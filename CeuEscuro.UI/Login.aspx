@@ -6,14 +6,14 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CéuEscuro</title>
-<link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+<%--<link rel="stylesheet" type="text/css" href="Style.css" media="screen" />--%>
 </head>
 <body>
-    <form id="form1" runat="server">
+        <%--<header>
+            <h1>Header</h1>
+        </header>--%>
+    <form id="form1" runat="server">   
         <div id="container">
-            <header>
-                <h1>Header</h1>
-            </header>
 
             <h1>Céu Escuro</h1>
             <ul>

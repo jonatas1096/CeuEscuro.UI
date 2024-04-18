@@ -8,6 +8,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="../Style.css" media="screen" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,4 +18,11 @@
         </div>
     </form>
 </body>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+
 </html>

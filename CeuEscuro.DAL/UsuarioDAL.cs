@@ -98,7 +98,7 @@ namespace CeuEscuro.DAL
                 while (dr.Read())
                 {
                     UsuarioDTO usuario = new UsuarioDTO();
-                    usuario.Id = Convert.ToInt32(dr["usuario.Id"]);
+                    usuario.Id = Convert.ToInt32(dr["Id"]);
                     usuario.Nome = dr["Nome"].ToString();
                     usuario.Email = dr["Email"].ToString();
                     usuario.Senha = dr["Senha"].ToString();
@@ -186,10 +186,10 @@ namespace CeuEscuro.DAL
                 {
                     usuario = new UsuarioDTO();
 
-                    usuario.Id = Convert.ToInt32(dr["Usuario.Id"]);
+                    usuario.Id = Convert.ToInt32(dr["Id"]);
                     usuario.Nome = dr["Nome"].ToString();
                     usuario.Email = dr["Email"].ToString();
-                    /*usuario.Senha = dr["Senha"].ToString();*/
+                    usuario.Senha = dr["Senha"].ToString();
                     usuario.DataNascUsuario = Convert.ToDateTime(dr["DataNascUsuario"]);
                     usuario.TipoUsuario_Id = dr["TipoUsuario_Id"].ToString();
 

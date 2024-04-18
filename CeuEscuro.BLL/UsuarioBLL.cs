@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CeuEscuro.DAL;
 using CeuEscuro.DTO;
+using MySql.Data.MySqlClient;
 
 namespace CeuEscuro.BLL
 {
@@ -20,7 +21,7 @@ namespace CeuEscuro.BLL
         }
 
 
-        public List<UsuarioDTO> GetUser (UsuarioDTO usuario)
+        public List<UsuarioDTO> GetUser ()
         {
             return objBLL.GetUsers();
 
@@ -41,6 +42,11 @@ namespace CeuEscuro.BLL
             return objBLL.SearchById(usuarioId);
         }
 
+
+        public List<TipoUsuarioDTO> LoadDDL_TpUser()
+        {
+            return objBLL.LoadDDL();
+        }
 
     }
 
