@@ -58,7 +58,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar();
 
-                cmd = new MySqlCommand("INSERTO INTO Usuario (Nome, Email, Senha, DataNascUsuario, TipoUsuario_Id) VALUES (@Nome, @Email, @Senha, @DataNascUsuario, @TipoUsuario_Id)", conn);
+                cmd = new MySqlCommand("INSERT INTO Usuario (Nome, Email, Senha, DataNascUsuario, TipoUsuario_Id) VALUES (@Nome, @Email, @Senha, @DataNascUsuario, @TipoUsuario_Id)", conn);
 
                 cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                 cmd.Parameters.AddWithValue("@Email", usuario.Email);
@@ -90,7 +90,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar();
 
-                cmd = new MySqlCommand("SELECT usuario.Id, Nome, Email, Senha, DataNascUsuario, Descricao FROM Usuario INNER JOIN tipousuario ON Usuario.Id like tipousuario.Id ORDER BY Usuario.Nome ASC;", conn);
+                cmd = new MySqlCommand("SELECT usuario.Id, Nome, Email, Senha, DataNascUsuario, Descricao FROM Usuario INNER JOIN tipousuario ON tipousuario_Id like tipousuario.Id;", conn);
                 dr = cmd.ExecuteReader();
 
                 List<UsuarioDTO> Lista = new List<UsuarioDTO>(); //Aqui é uma lista vazia do tipo UsuarioDTO
@@ -105,7 +105,7 @@ namespace CeuEscuro.DAL
                     usuario.DataNascUsuario = Convert.ToDateTime(dr["DataNascUsuario"]);
                     usuario.TipoUsuario_Id = dr["Descricao"].ToString();
 
-                    Lista.Add(usuario); //Depois de popular o objeto, adicionamos ele na lista
+                    Lista.Add(usuario); //Depois de popular o objeto, adicionamos ele na lista. Então, vira uma lista de varios objetos.
                 }
                 return Lista;
             }
@@ -127,7 +127,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar();
 
-                cmd = new MySqlCommand("UPDATE Usuario SET Nome = @Nome, Email = @Email, Senha = @Senha,DataNascUsuario = @DataNascUsuario,TipoUsuario_Id = @TipoUsuario_Id WHERE Usuario.Id = @usuario.Id;", conn);
+                cmd = new MySqlCommand("UPDATE Usuario SET Nome = @Nome, Email = @Email, Senha = @Senha, DataNascUsuario = @DataNascUsuario, TipoUsuario_Id = @TipoUsuario_Id WHERE Usuario.Id LIKE @usuario.Id;", conn);
 
                 cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                 cmd.Parameters.AddWithValue("@Email", usuario.Email);
@@ -135,6 +135,8 @@ namespace CeuEscuro.DAL
                 cmd.Parameters.AddWithValue("@DataNascUsuario", usuario.DataNascUsuario);
                 cmd.Parameters.AddWithValue("@TipoUsuario_Id", usuario.TipoUsuario_Id);
                 cmd.Parameters.AddWithValue("@usuario.Id", usuario.Id);
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -169,7 +171,7 @@ namespace CeuEscuro.DAL
             }
         }
 
-        public UsuarioDTO SearchById(int usuarioId)
+        public UsuarioDTO SearchById(int usuarioId) //Estava usando antes, troquei pelo ByName abaixo.
         {
             try
             {
@@ -208,6 +210,47 @@ namespace CeuEscuro.DAL
             }
 
             
+        }
+
+        public UsuarioDTO SearchByName(string usuarioName)
+        {
+            try
+            {
+                Conectar();
+
+                cmd = new MySqlCommand("SELECT * FROM usuario WHERE Nome like @usuarioName", conn);
+                cmd.Parameters.AddWithValue("@usuarioName", usuarioName);
+                dr = cmd.ExecuteReader();
+
+                UsuarioDTO usuario = new UsuarioDTO();
+
+
+                if (dr.Read())
+                {
+                    usuario = new UsuarioDTO();
+
+                    usuario.Id = Convert.ToInt32(dr["Id"]);
+                    usuario.Nome = dr["Nome"].ToString();
+                    usuario.Email = dr["Email"].ToString();
+                    usuario.Senha = dr["Senha"].ToString();
+                    usuario.DataNascUsuario = Convert.ToDateTime(dr["DataNascUsuario"]);
+                    usuario.TipoUsuario_Id = dr["TipoUsuario_Id"].ToString();
+
+                }
+                return usuario;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+
         }
 
 

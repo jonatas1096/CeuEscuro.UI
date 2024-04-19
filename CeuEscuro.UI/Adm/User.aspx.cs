@@ -16,8 +16,12 @@ namespace CeuEscuro.UI.Adm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadGV1();
-            LoadDDL1();
+            if (!IsPostBack)
+            {
+                txtId.Enabled = false;
+                LoadGV1();
+                LoadDDL1();
+            }
         }
 
         public void LoadGV1()
@@ -34,6 +38,8 @@ namespace CeuEscuro.UI.Adm
 
         public void SearchUser()
         {
+            
+
             if (string.IsNullOrEmpty(txtSearch.Text))
             {
                 lblSearch.Text = "Campo vazio ou ID inexistente.";
@@ -41,14 +47,15 @@ namespace CeuEscuro.UI.Adm
             }
             else
             {
-                int userId = Convert.ToInt32(txtSearch.Text.Trim());
-                objDTO = objBLL.SearchUserById(userId);
+                string userName = txtSearch.Text.Trim();
+
+                objDTO = objBLL.SearchUserByName(userName);
 
                 txtId.Text = objDTO.Id.ToString();
                 txtNome.Text = objDTO.Nome.ToString();
                 txtEmail.Text = objDTO.Email.ToString();
                 txtSenha.Text = objDTO.Senha.ToString();
-                txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/YYYY");
+                txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/yyyy");
                 ddl1.SelectedValue = objDTO.TipoUsuario_Id.ToString();
                 txtSearch.Text = string.Empty;
                 txtNome.Focus();
@@ -73,10 +80,56 @@ namespace CeuEscuro.UI.Adm
             txtNome.Text = objDTO.Nome.ToString();
             txtEmail.Text = objDTO.Email.ToString();
             txtSenha.Text = objDTO.Senha.ToString();
-            txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/YYYY");
+            txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/yyyy");
             ddl1.SelectedValue = objDTO.TipoUsuario_Id.ToString();
 
             LoadGV1();
+        }
+
+        //Função para criar um usuário no banco
+        protected void btnRecord_Click(object sender, EventArgs e)
+        {
+
+            objDTO.Nome = txtNome.Text.Trim();
+            objDTO.Email = txtEmail.Text.Trim();
+            objDTO.Senha = txtSenha.Text.Trim();
+
+            //objDTO.DataNascUsuario = Convert.ToDateTime(txtDataNascUsuario.Text.Trim()); Acho que dessa forma padrão também leva ao mesmo resultado
+            DateTime dt = DateTime.Parse(txtDataNascUsuario.Text.Trim());
+            objDTO.DataNascUsuario = dt;
+            objDTO.TipoUsuario_Id = ddl1.SelectedValue;
+
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                objBLL.CreateUser(objDTO);
+                lblSearch.Text = "Usuário criado com sucesso.";
+            }
+            else
+            {
+                objDTO.Id = int.Parse(txtId.Text);
+                objBLL.UpdateUser(objDTO);
+                lblSearch.Text = "Usuário atualizado com sucesso.";
+            }
+
+            LoadGV1();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //objDTO.Id = Convert.ToInt32(txtId.Text);
+
+            objDTO.Id = int.Parse(txtId.Text);
+
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                objBLL.DeleteUsers(objDTO.Id);
+            }
+            else {
+                lblSearch.Text = "Selecione um usuário para deletar.";
+            }
+
+            LoadGV1();
+            
         }
     }
 }

@@ -27,6 +27,11 @@ namespace CeuEscuro.BLL
 
         }
 
+        public void CreateUser(UsuarioDTO usuario)
+        {
+            objBLL.CreateUser(usuario);
+        }
+
         public void UpdateUser(UsuarioDTO usuario)
         {
             objBLL.UpdateUser(usuario);
@@ -37,11 +42,15 @@ namespace CeuEscuro.BLL
             objBLL.DeleteUser(UsuarioId);
         }
 
-        public UsuarioDTO SearchUserById(int usuarioId)
+        public UsuarioDTO SearchUserById(int usuarioId) //Estava usando antes.
         {
             return objBLL.SearchById(usuarioId);
         }
 
+        public UsuarioDTO SearchUserByName(string usuarioName)
+        {
+            return objBLL.SearchByName(usuarioName);
+        }
 
         public List<TipoUsuarioDTO> LoadDDL_TpUser()
         {

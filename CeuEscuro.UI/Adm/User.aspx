@@ -34,36 +34,21 @@
         <%------------------%>
 
         <li> 
-            <asp:Button ID="btnRecord" runat="server" Text="Record" /> 
+            <asp:Button ID="btnRecord" runat="server" Text="Record" OnClick="btnRecord_Click"/> 
             <asp:Button ID="btnClear" runat="server" Text="Clear" />
-            <asp:Button ID="btnDelete"  runat="server" Text="Delete" />
+            <asp:Button ID="btnDelete"  runat="server" Text="Delete" OnClick="btnDelete_Click" OnClientClick="if(!confirm('Deseja excluir este usuário?')) return false"/>
         </li>
         
         <%--SearchById--%>
         <li>
-            <asp:TextBox ID="txtSearch" runat="server" placeholder="Search by Id"></asp:TextBox>
+            <asp:TextBox ID="txtSearch" runat="server" placeholder="Search by Name"></asp:TextBox>
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
             <asp:Label ID="lblSearch" runat="server" Text=""></asp:Label>
         </li>
-
+        
     </ul>
 
-
-    <%--TESTE
-    <asp:GridView ID="GridViewSearch" AutoGenerateColumns="false" runat="server">
-
-    <Columns>
-        <asp:BoundField DataField="" HeaderText="Id"/>
-        <asp:BoundField DataField="" HeaderText="Name"/>
-        <asp:BoundField DataField="" HeaderText="Email"/>
-        <asp:BoundField DataField="" HeaderText="Password"/>
-        <asp:BoundField DataField="" HeaderText="Birth Date" DataFormatString="{0:dd/MM/yyyy}"/>
-        <asp:BoundField DataField="" HeaderText="Permission"/>
-    </Columns>
-
-    </asp:GridView>--%>
-
-    <%--GridView--%>
+    
 
     <asp:GridView ID="gv1" AutoGenerateColumns="false" runat="server" OnSelectedIndexChanged="gv1_SelectedIndexChanged">
 
