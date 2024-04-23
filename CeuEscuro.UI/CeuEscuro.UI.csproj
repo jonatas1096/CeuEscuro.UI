@@ -161,6 +161,7 @@
     <Compile Include="User\ConsultaUser.Master.designer.cs">
       <DependentUpon>ConsultaUser.Master</DependentUpon>
     </Compile>
+    <Compile Include="utilities\Clear.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adm\ManagerUser.Master" />
@@ -185,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resource\" />
-    <Folder Include="utilities\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

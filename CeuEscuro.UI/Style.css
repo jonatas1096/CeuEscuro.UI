@@ -12,9 +12,12 @@ body {
     background-color: orange;
     color: black;
     font-weight: bolder;
-    background-image: url('src/senac2.jpg');
+    /*background-image: url('src/senac2.jpg');
     background-repeat: no-repeat;
-    background-size: 2000px 2800px;
+    background-size: 2000px 2800px;*/
+    background-image: url('src/senac5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
 }

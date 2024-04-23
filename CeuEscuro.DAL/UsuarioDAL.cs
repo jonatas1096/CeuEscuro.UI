@@ -227,7 +227,7 @@ namespace CeuEscuro.DAL
 
                 if (dr.Read())
                 {
-                    usuario = new UsuarioDTO();
+                   /* usuario = new UsuarioDTO();*/
 
                     usuario.Id = Convert.ToInt32(dr["Id"]);
                     usuario.Nome = dr["Nome"].ToString();

@@ -35,7 +35,7 @@
 
         <li> 
             <asp:Button ID="btnRecord" runat="server" Text="Record" OnClick="btnRecord_Click"/> 
-            <asp:Button ID="btnClear" runat="server" Text="Clear" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click"/>
             <asp:Button ID="btnDelete"  runat="server" Text="Delete" OnClick="btnDelete_Click" OnClientClick="if(!confirm('Deseja excluir este usuário?')) return false"/>
         </li>
         
@@ -63,7 +63,6 @@
         </Columns>
 
     </asp:GridView>
-
 
 </asp:Content>
 
