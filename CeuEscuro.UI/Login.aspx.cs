@@ -1,5 +1,6 @@
 ﻿using CeuEscuro.BLL;
 using CeuEscuro.DTO;
+using CeuEscuro.UI.utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,13 +38,25 @@ namespace CeuEscuro.UI
             string Senha = txtSenha.Text;
 
             usuario = usuarioBLL.UserAutentication(Email, Senha);
+            
 
             if (usuario != null)
             {
-                lblMensagem.Text = $"Bem vindo, {usuario.Nome.ToUpper()}!";
+                switch (usuario.TipoUsuario_Id)
+                {
+                    case "1":
+                        Session["Usuario"] = usuario.Nome.Trim();
+                        Response.Redirect("adm/User.aspx");
+                        break;
+                    case "2":
+                        Session["Usuario"] = usuario.Nome.Trim();
+                        Response.Redirect("user/Consulta.aspx");
+                        break;
+                }
             }
             else
             {
+                Clear.ClearFields(this);
                 lblMensagem.Text = $"O usuário preenchido não foi encontrado na base de dados.";
             }
 

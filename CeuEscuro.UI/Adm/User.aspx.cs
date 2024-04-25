@@ -17,6 +17,9 @@ namespace CeuEscuro.UI.Adm
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblSession.Text = $"Bem vindo(a), {Session["Usuario"]}! Sua sessão se iniciou às {DateTime.Now.ToString("t")}";
+            Response.AppendHeader("Refresh", String.Concat((Session.Timeout * 60), ";URL=../Login.aspx"));
+
             if (!IsPostBack)
             {
                 txtId.Enabled = false;

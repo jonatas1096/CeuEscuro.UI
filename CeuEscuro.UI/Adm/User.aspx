@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="lblSession" runat="server" Text=""></asp:Label>
 
     <ul>
         <li> <asp:TextBox ID="txtId" placeholder="Id:" runat="server"></asp:TextBox> </li>
@@ -48,7 +48,7 @@
         
     </ul>
 
-    
+    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 
     <asp:GridView ID="gv1" AutoGenerateColumns="false" runat="server" OnSelectedIndexChanged="gv1_SelectedIndexChanged">
 

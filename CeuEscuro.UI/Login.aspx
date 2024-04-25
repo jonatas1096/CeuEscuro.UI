@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CéuEscuro</title>
-<%--<link rel="stylesheet" type="text/css" href="Style.css" media="screen" />--%>
+    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
 </head>
 <body>
         <%--<header>
@@ -28,7 +28,7 @@
                     <asp:Button ID="btnLimpar" runat="server" Text="Limpar" OnClick="btnLimpar_Click" />
                 </li>
                 <li>
-                    <asp:Label ID="lblMensagem" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
                 </li>
             </ul>
         </div>
