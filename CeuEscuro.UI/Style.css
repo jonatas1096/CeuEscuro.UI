@@ -12,22 +12,15 @@ body {
     background-color: orange;
     color: black;
     font-weight: bolder;
-    /*background-image: url('src/senac2.jpg');
-    background-repeat: no-repeat;
-    background-size: 2000px 2800px;*/
-    background-image: url('src/senac5.jpg');
+}
+
+#container{
+    background-image: url('src/newyork4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
-}
 
-header {
-    height: 10vh;
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-    background-color: white;
 }
 
 #form1 {
@@ -41,6 +34,15 @@ header {
     background-color: white;
     opacity: 0.96;
     border-radius: 25px;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    border: solid green 2px;
 }
 
 ul {

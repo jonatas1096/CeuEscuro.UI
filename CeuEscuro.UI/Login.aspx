@@ -9,30 +9,30 @@
     <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
 </head>
 <body>
-        <%--<header>
+        <header>
             <h1>Header</h1>
-        </header>--%>
-    <form id="form1" runat="server">   
+        </header>
         <div id="container">
+            <form id="form1" runat="server">   
 
-            <h1>Céu Escuro</h1>
-            <ul>
-                <li>
-                    <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" autofocus="" ></asp:TextBox>
-                </li>
-                <li>
-                    <asp:TextBox ID="txtSenha" runat="server" placeholder="Senha" MaxLength="6" TextMode="Password"></asp:TextBox>
-                </li>
-                <li>
-                    <asp:Button ID="btnLogar" runat="server" Text="Logar" OnClick="btnLogar_Click"/>
-                    <asp:Button ID="btnLimpar" runat="server" Text="Limpar" OnClick="btnLimpar_Click" />
-                </li>
-                <li>
-                    <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
-                </li>
-            </ul>
+                <h1>Céu Escuro</h1>
+                <ul>
+                    <li>
+                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" autofocus="" ></asp:TextBox>
+                    </li>
+                    <li>
+                        <asp:TextBox ID="txtSenha" runat="server" placeholder="Senha" MaxLength="6" TextMode="Password"></asp:TextBox>
+                    </li>
+                    <li>
+                        <asp:Button ID="btnLogar" runat="server" Text="Logar" OnClick="btnLogar_Click"/>
+                        <asp:Button ID="btnLimpar" runat="server" Text="Limpar" OnClick="btnLimpar_Click" />
+                    </li>
+                    <li>
+                        <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+                    </li>
+                </ul>
+            </form>
         </div>
-    </form>
 </body>
 </html>
 
