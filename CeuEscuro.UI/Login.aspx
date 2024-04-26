@@ -10,12 +10,10 @@
 </head>
 <body>
         <header>
-            <h1>Header</h1>
+            <asp:Image id="senaclogo" runat="server" src="src/senaclogo.png"/>
         </header>
         <div id="container">
-            <form id="form1" runat="server">   
-
-                <h1>Céu Escuro</h1>
+            <form id="form1" runat="server"> 
                 <ul>
                     <li>
                         <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" autofocus="" ></asp:TextBox>
