@@ -42,7 +42,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar(); //Tentando conectar ao banco
 
-                cmd = new MySqlCommand("SELECT Filme.Id, Titulo, Produtora, UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.id LIKE classificacao.id INNER JOIN genero ON filme.Genero_Id LIKE genero.Id;", conn); //A query em si         
+                cmd = new MySqlCommand("SELECT Filme.Id, Titulo, Produtora, UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.id LIKE classificacao.id INNER JOIN genero ON filme.Genero_Id LIKE genero.Id ORDER BY filme.Titulo ASC;", conn); //A query em si         
                 dr = cmd.ExecuteReader(); //Dr é da classe conexão, utilizamos apenas para ler, diferente da ExecuteNonQuery.
 
                 List<FilmeDTO> list = new List<FilmeDTO>(); //Nova lista do tipo filme
@@ -156,5 +156,107 @@ namespace CeuEscuro.DAL
                 Desconectar();
             }
         }
+
+
+        //Search by Name
+        public FilmeDTO SearchMovieByName(string titulo)
+        {
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("SELECT * FROM Filme WHERE Titulo = @Titulo ;", conn);
+                cmd.Parameters.AddWithValue("@Titulo", titulo);
+                dr = cmd.ExecuteReader();
+                FilmeDTO filme = new FilmeDTO();
+                if (dr.Read())
+                {
+                    filme = new FilmeDTO();
+                    filme.Id = Convert.ToInt32(dr["Id"]);
+                    filme.Titulo = dr["Titulo"].ToString();
+                    filme.Produtora = dr["Produtora"].ToString();
+                    filme.UrlImg = dr["UrlImg"].ToString();
+                    filme.Classificacao_Id = dr["Classificacao_Id"].ToString();
+                    filme.Genero_Id = dr["Genero_Id"].ToString();
+                }
+                return filme;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+        }
+
+
+
+        ////////////////
+        //Partes que o professor mandou:
+        //Load DropDownListClassif
+        public List<ClassificacaoDTO> LoadDDLClassif()
+        {
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("SELECT * FROM Classificacao;", conn);
+                dr = cmd.ExecuteReader();
+                List<ClassificacaoDTO> Lista = new List<ClassificacaoDTO>();
+                while (dr.Read())
+                {
+                    ClassificacaoDTO classificacao = new ClassificacaoDTO();
+                    classificacao.Id = Convert.ToInt32(dr["Id"]);
+                    classificacao.DescricaoClassificacao = dr["DescricaoClassificacao"].ToString();
+                    Lista.Add(classificacao);
+                }
+                return Lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        //Load DropDownListGenero
+        public List<GeneroDTO> LoadDDLGenero()
+        {
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("SELECT * FROM Genero;", conn);
+                dr = cmd.ExecuteReader();
+                List<GeneroDTO> Lista = new List<GeneroDTO>();
+                while (dr.Read())
+                {
+                    GeneroDTO genero = new GeneroDTO();
+                    genero.Id = Convert.ToInt32(dr["Id"]);
+                    genero.Descricao = dr["Descricao"].ToString();
+                    Lista.Add(genero);
+                }
+                return Lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+
     }
 }

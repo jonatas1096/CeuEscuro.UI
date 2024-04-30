@@ -32,11 +32,28 @@ namespace CeuEscuro.BLL
             objBLL.DeleteMovie(movieid);
         }
 
-        public FilmeDTO GetMovies(int movieid) 
-        { 
-          return objBLL.SearchMovieById(movieid);
+        public FilmeDTO GetMovies(int movieid)
+        {
+            return objBLL.SearchMovieById(movieid);
+        }
+        public FilmeDTO SearchByNameFilm(string titulo)
+        {
+            return objBLL.SearchMovieByName(titulo);
+
         }
 
+        //Partes que o professor mandou:
+        //Load DropDownListClassif
+        public List<ClassificacaoDTO> LoadDDLClassif_Classif()
+        {
+            return objBLL.LoadDDLClassif();
+        }
+
+        //Load DropDownListGenero
+        public List<GeneroDTO> LoadDDLGenero_Genero()
+        {
+            return objBLL.LoadDDLGenero();
+        }
 
     }
 }

@@ -118,13 +118,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Adm\Filme.aspx" />
     <Content Include="Adm\User.aspx" />
+    <Content Include="img\harry.jpg" />
+    <Content Include="img\Invocacao.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Style.css" />
     <Content Include="User\Consulta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adm\Filme.aspx.cs">
+      <DependentUpon>Filme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Adm\Filme.aspx.designer.cs">
+      <DependentUpon>Filme.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Adm\ManagerUser.Master.cs">
       <DependentUpon>ManagerUser.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
