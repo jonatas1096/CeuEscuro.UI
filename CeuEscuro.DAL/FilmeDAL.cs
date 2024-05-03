@@ -42,7 +42,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar(); //Tentando conectar ao banco
 
-                cmd = new MySqlCommand("SELECT Filme.Id, Titulo, Produtora, UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.id LIKE classificacao.id INNER JOIN genero ON filme.Genero_Id LIKE genero.Id ORDER BY filme.Titulo ASC;", conn); //A query em si         
+                cmd = new MySqlCommand("SELECT filme.Id,  Titulo, Produtora, UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.Classificacao_Id = classificacao.Id INNER JOIN genero ON filme.Genero_Id = genero.Id ORDER BY filme.Titulo ASC;", conn); //A query em si         
                 dr = cmd.ExecuteReader(); //Dr é da classe conexão, utilizamos apenas para ler, diferente da ExecuteNonQuery.
 
                 List<FilmeDTO> list = new List<FilmeDTO>(); //Nova lista do tipo filme
@@ -127,7 +127,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar(); //Tentando conectar ao banco
 
-                cmd = new MySqlCommand("SELECT * FROM filme INNER JOIN classificacao ON filme.id LIKE classificacao.id INNER JOIN genero ON filme.Genero_Id LIKE genero.Id WHERE filme.Id like @movie", conn); //A query em si         
+                cmd = new MySqlCommand("SELECT filme.Id,  Titulo, Produtora, UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.id = classificacao.id INNER JOIN genero ON filme.Genero_Id = genero.Id WHERE filme.Id = @movieid", conn); //A query em si         
                 cmd.Parameters.AddWithValue("movieid", movieid);
                 dr = cmd.ExecuteReader();
 
@@ -139,8 +139,8 @@ namespace CeuEscuro.DAL
                     movie.Titulo = dr["Titulo"].ToString();
                     movie.Produtora = dr["Produtora"].ToString();
                     movie.UrlImg = dr["UrlImg"].ToString();
-                    movie.Classificacao_Id = dr["DescricaoClassificacao"].ToString();
-                    movie.Genero_Id = dr["Descricao"].ToString();
+                    movie.Classificacao_Id = dr["Classificacao_Id"].ToString();
+                    movie.Genero_Id = dr["Genero_Id"].ToString();
                 }
                
                 return movie;
@@ -193,7 +193,43 @@ namespace CeuEscuro.DAL
 
         }
 
+        public List<FilmeDTO> SearchByFilter(string filter)
+        {
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("SELECT filme.Id, filme.Titulo, filme.Produtora, filme.UrlImg, classificacao.DescricaoClassificacao, genero.Descricao FROM filme INNER JOIN genero ON genero.Id = filme.Genero_Id INNER JOIN classificacao ON classificacao.Id = filme.Id WHERE genero.Descricao = @filter;", conn);
+                cmd.Parameters.AddWithValue("@filter", filter);
+                dr = cmd.ExecuteReader();
+                FilmeDTO filme = new FilmeDTO();
 
+                List<FilmeDTO> list = new List<FilmeDTO>(); //Nova lista do tipo filme
+
+                while (dr.Read())
+                {
+                    filme = new FilmeDTO();
+                    filme.Id = Convert.ToInt32(dr["Id"]);
+                    filme.Titulo = dr["Titulo"].ToString();
+                    filme.Produtora = dr["Produtora"].ToString();
+                    filme.UrlImg = dr["UrlImg"].ToString();
+                    filme.Classificacao_Id = dr["DescricaoClassificacao"].ToString();
+                    filme.Genero_Id = dr["Descricao"].ToString();
+                    list.Add(filme);
+                    
+                }
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
 
         ////////////////
         //Partes que o professor mandou:

@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CéuEscuro</title>
-    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+     <link rel="stylesheet" type="text/css" href="StyleLogin.css" media="screen" />
 </head>
 <body>
         <header>

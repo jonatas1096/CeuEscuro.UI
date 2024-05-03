@@ -36,9 +36,16 @@ namespace CeuEscuro.BLL
         {
             return objBLL.SearchMovieById(movieid);
         }
+
         public FilmeDTO SearchByNameFilm(string titulo)
         {
             return objBLL.SearchMovieByName(titulo);
+
+        }
+
+        public List<FilmeDTO> SearchByFilterFilm(string movieFilter)
+        {
+            return objBLL.SearchByFilter(movieFilter);
 
         }
 

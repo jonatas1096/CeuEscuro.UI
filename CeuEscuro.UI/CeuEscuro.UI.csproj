@@ -123,7 +123,7 @@
     <Content Include="img\harry.jpg" />
     <Content Include="img\Invocacao.jpg" />
     <Content Include="Login.aspx" />
-    <Content Include="Style.css" />
+    <Content Include="StyleLogin.css" />
     <Content Include="User\Consulta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
