@@ -1,4 +1,9 @@
-﻿html {
+﻿@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Light.otf');
+}
+
+html {
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -14,7 +19,7 @@ body {
     background-color: orange;
     color: black;
     font-weight: bolder;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: Poppins
 }
 
 header {
@@ -30,7 +35,7 @@ header {
 }
 
 #container {
-    background-image: url('src/newyork4.jpg');
+   background-image: url('../src/newyork4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -41,25 +46,26 @@ header {
 }
 
 #areaLogin {
-    width: 50%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 67vh;
+    height: 57vh;
     padding: 0px;
-    background-color: white;
-    opacity: 0.96;
+    background-color: #333;
+    opacity: 0.97;
     box-shadow: rgba(0, 0, 0, 0.98) 0px 5px 15px;
     border-radius: 25px;
 }
 
 
-#form1 {
+/*#form1 {
     width: 40%;
     background-color: #f4f4f4;
     height: 40vh;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: solid red 2px;
 }
 
 #areaLoginHeader {
@@ -78,7 +84,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    
+}*/
 
 #senaclogo {
     height: 8vh;
@@ -103,21 +110,29 @@ li {
 }
 
 #txtEmail, #txtSenha {
-    height: 3vh;
-    width: 25vh;
+    height: 4vh;
+    width: 30vh;
     padding: 0.5vh;
     font-size: 1em;
+    opacity: 0.92;
+}
+
+#txtEmail:focus, #txtSenha:focus{
+    opacity: 1;
 }
 
 #btnLogar, #btnLimpar {
-    width: 13vh;
-    height: 3vh;
+    width: 12vh;
+    height: 4vh;
     border: none;
-    background-color: #90755d;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 1em;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+#btnLogar:hover{
+    border: solid #333 2px;
+}
 
 

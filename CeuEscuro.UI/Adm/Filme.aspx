@@ -29,7 +29,7 @@
         <%--<li>
             <asp:TextBox ID="txtDataNascUsuario" onkeypress="$(this).mask('00/00/0000')" placeholder="Birth Date:" runat="server"></asp:TextBox>
             <asp:Label ID="lblDataNascUsuario" runat="server" Text=""></asp:Label>
-        </li>--%>
+        </li>--%>    
 
         <%--Listinha dos tipos de classificações--%>
         <li><span>Select the classification:</span></li>
@@ -66,6 +66,7 @@
             <asp:TextBox ID="txtGenero" runat="server" placeholder="Search by Genre"></asp:TextBox>
             <asp:Button ID="btnFilter" runat="server" Text="Search" OnClick="btnFilter_Click"/>
             <asp:Button ID="btnClearGenero" runat="server" Text="Clear Filter" OnClick="btnClearGenero_Click"/>
+            <asp:Label ID="lblFilter" runat="server" Text=""></asp:Label>
         </li>
     </ul>
 

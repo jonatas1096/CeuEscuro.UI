@@ -82,7 +82,7 @@ namespace CeuEscuro.UI.Adm
 
         protected void gv2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int filmeId = int.Parse(gv2.SelectedRow.Cells[1].Text);
+            int filmeId = Convert.ToInt32(gv2.SelectedRow.Cells[1].Text);
             objDTO = objBLL.GetMovies(filmeId);
 
             txtId.Text = objDTO.Id.ToString();
@@ -91,7 +91,6 @@ namespace CeuEscuro.UI.Adm
             ddlClassif.SelectedValue = objDTO.Classificacao_Id.ToString();
             ddlGenero.SelectedValue = objDTO.Genero_Id.ToString();
 
-            
             txtTitulo.Focus();
         }
 
@@ -186,14 +185,21 @@ namespace CeuEscuro.UI.Adm
             
             
             //Utilizando e carregando as informações no gridView
+            if (!string.IsNullOrEmpty(objDTO.Genero_Id))
+            {
             gv2.DataSource = objBLL.SearchByFilterFilm(objDTO.Genero_Id);
             gv2.DataBind();
+            }
+            else
+            {
+                lblFilter.Text = "Preencha o tipo do filme.";
+            }
 
         }
 
         protected void btnClearGenero_Click(object sender, EventArgs e)
         {
-
+            LoadGV2();
         }
     }
 }

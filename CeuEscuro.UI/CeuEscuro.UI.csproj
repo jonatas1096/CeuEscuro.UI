@@ -123,7 +123,9 @@
     <Content Include="img\harry.jpg" />
     <Content Include="img\Invocacao.jpg" />
     <Content Include="Login.aspx" />
-    <Content Include="StyleLogin.css" />
+    <Content Include="resource\script.js" />
+    <Content Include="resource\Style.css" />
+    <Content Include="resource\StyleLogin.css" />
     <Content Include="User\Consulta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -177,6 +179,7 @@
     <Content Include="Adm\ManagerUser.Master" />
     <None Include="packages.config" />
     <Content Include="User\ConsultaUser.Master" />
+    <Content Include="resource\Poppins-Light.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,9 +197,7 @@
       <Name>CeuEscuro.DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="resource\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

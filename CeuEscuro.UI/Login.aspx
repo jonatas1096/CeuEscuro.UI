@@ -6,17 +6,14 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CéuEscuro</title>
-     <link rel="stylesheet" type="text/css" href="StyleLogin.css" media="screen" />
+     <link rel="stylesheet" type="text/css" href="resource/StyleLogin.css" media="screen" />
 </head>
 <body>
         <header>
             <asp:Image id="senaclogo" runat="server" src="src/senaclogo.png"/>
         </header>
         <div id="container">
-            <div id="areaLogin">
-                    <form id="form1" runat="server"> 
-                        <div id="areaLoginHeader"><h1>Céu Escuro</h1></div>
-                        <div id="areaLoginFields">
+                    <form id="areaLogin" runat="server"> 
                             <ul>
                                 <li>
                                     <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" autofocus="" ></asp:TextBox>
@@ -32,9 +29,7 @@
                                     <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
                                 </li>
                             </ul>
-                        </div>
                     </form>
-            </div>
         </div>
 </body>
 </html>
