@@ -79,7 +79,7 @@
             <asp:CommandField ShowSelectButton="true" ButtonType="Button" HeaderText="Select Movie"/>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Titulo" HeaderText="Title" />
-            <asp:BoundField DataField="Produtora" HeaderText="Email" />
+            <asp:BoundField DataField="Produtora" HeaderText="Producer" />
             <asp:BoundField DataField="Classificacao_Id" HeaderText="Classification" />
             <asp:BoundField DataField="Genero_Id" HeaderText="Type" />
             <asp:ImageField DataImageUrlField="UrlImg" HeaderText="Imagem" ControlStyle-Width="100" />

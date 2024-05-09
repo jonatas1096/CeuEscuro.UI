@@ -1,2 +1,139 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Light.otf');
 }
+
+html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;  
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+    font-weight: bolder;
+    font-family: Poppins;
+       
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#containerLogin {
+    background-image: url('../src/newyork4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+}
+
+#areaLogin {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 57vh;
+    padding: 0px;
+    background-color: #333;
+    opacity: 0.97;
+    box-shadow: rgba(0, 0, 0, 0.98) 0px 5px 15px;
+    border-radius: 25px;
+}
+
+#senaclogo {
+    height: 8vh;
+    width: 16vh;
+    margin-left: 3vh;
+}
+
+
+h1{
+    margin: 0px;
+    color: white;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px
+
+}
+li {
+    list-style-type: none;
+    margin: 2vh;
+}
+
+#txtEmail, #txtSenha {
+    height: 3vh;
+    width: 40vh;
+    padding: 0.5vh;
+    font-size: 1em;
+    opacity: 0.65;
+}
+
+#txtEmail:focus, #txtSenha:focus, #txtEmail:hover, #txtSenha:hover{
+    opacity: 1;
+    border: solid green 2px;
+}
+
+#btnLogar, #btnLimpar {
+    width: 12vh;
+    height: 4vh;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin: 5px;
+}
+
+#btnLogar:hover, #btnLimpar:hover {
+    border: solid green 2px;
+}    
+
+/* USER */
+
+bodyUser {
+    background-image: url('../src/userbackground.jpg');
+}
+
+.containerUser {
+    margin: 2vh;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+    line-height: 4vh;
+
+}
+
+tr:hover {
+    background-color: #F1F1F1; 
+}
+
+
+
+
+/* USER ACIMA*/

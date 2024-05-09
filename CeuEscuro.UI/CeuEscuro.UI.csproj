@@ -125,7 +125,6 @@
     <Content Include="Login.aspx" />
     <Content Include="resource\script.js" />
     <Content Include="resource\Style.css" />
-    <Content Include="resource\StyleLogin.css" />
     <Content Include="User\Consulta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -42,19 +42,16 @@ namespace CeuEscuro.UI.Adm
 
         public void SearchUser()
         {
-            
+            string userName = txtSearch.Text.Trim();
 
-            if (string.IsNullOrEmpty(txtSearch.Text))
+            objDTO = objBLL.SearchUserByName(userName);
+
+            if (string.IsNullOrEmpty(objDTO.Nome))
             {
-                lblSearch.Text = "Campo vazio ou ID inexistente.";
-                txtSearch.Focus();
+                lblSearch.Text = "Nome inválido.";
             }
             else
             {
-                string userName = txtSearch.Text.Trim();
-
-                objDTO = objBLL.SearchUserByName(userName);
-
                 txtId.Text = objDTO.Id.ToString();
                 txtNome.Text = objDTO.Nome.ToString();
                 txtEmail.Text = objDTO.Email.ToString();
@@ -65,7 +62,7 @@ namespace CeuEscuro.UI.Adm
                 txtNome.Focus();
                 lblSearch.Text = string.Empty;
             }
-            
+
         }
 
         //Função que está no btnSearch:
@@ -78,16 +75,26 @@ namespace CeuEscuro.UI.Adm
         {
             int usuarioId = int.Parse(gv1.SelectedRow.Cells[1].Text);
 
-            objDTO = objBLL.SearchUserById(usuarioId);
+            if (string.IsNullOrEmpty(txtSearch.Text) || objDTO.Id == 0)
+            {
+                lblSearch.Text = "Campo vazio ou ID inexistente.";
+                txtSearch.Text = string.Empty;
+                txtSearch.Focus();
+            }
+            else
+            {
+                objDTO = objBLL.SearchUserById(usuarioId);
 
-            txtId.Text = objDTO.Id.ToString();
-            txtNome.Text = objDTO.Nome.ToString();
-            txtEmail.Text = objDTO.Email.ToString();
-            txtSenha.Text = objDTO.Senha.ToString();
-            txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/yyyy");
-            ddl1.SelectedValue = objDTO.TipoUsuario_Id.ToString();
 
-            LoadGV1();
+                txtId.Text = objDTO.Id.ToString();
+                txtNome.Text = objDTO.Nome.ToString();
+                txtEmail.Text = objDTO.Email.ToString();
+                txtSenha.Text = objDTO.Senha.ToString();
+                txtDataNascUsuario.Text = objDTO.DataNascUsuario.ToString("dd/MM/yyyy");
+                ddl1.SelectedValue = objDTO.TipoUsuario_Id.ToString();
+
+                LoadGV1();
+            }
         }
 
         //Função para criar um usuário no banco

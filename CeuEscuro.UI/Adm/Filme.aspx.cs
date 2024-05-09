@@ -52,6 +52,12 @@ namespace CeuEscuro.UI.Adm
 
             objDTO = objBLL.SearchByNameFilm(title);
 
+            if (string.IsNullOrEmpty(objDTO.Titulo))  
+            {
+                lblSearch.Text = "Filme não encontrado";
+            }
+            else
+            {
             txtId.Text = objDTO.Id.ToString();
             txtTitulo.Text = objDTO.Titulo.ToString();
             txtProdutora.Text = objDTO.Produtora.ToString();
@@ -61,13 +67,16 @@ namespace CeuEscuro.UI.Adm
             txtSearch.Text = string.Empty;
             txtTitulo.Focus();
             lblSearch.Text = string.Empty;
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            lblSearch.Text = string.Empty;
             if (string.IsNullOrEmpty(txtSearch.Text))
             {
                 lblSearch.Text = "Campo vazio ou Título inexistente.";
+                txtSearch.Text = string.Empty;
                 txtSearch.Focus();
                 return;
             }

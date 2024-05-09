@@ -127,7 +127,7 @@ namespace CeuEscuro.DAL
             {
                 Conectar(); //Tentando conectar ao banco
 
-                cmd = new MySqlCommand("SELECT filme.Id,  filme.Titulo, filme.Produtora, filme.UrlImg, classificacao.DescricaoClassificacao, genero.descricao FROM filme INNER JOIN classificacao ON filme.Classificacao_Id = classificacao.Id INNER JOIN genero ON filme.Genero_Id = genero.Id WHERE filme.Id = @movieid", conn); //A query em si         
+                cmd = new MySqlCommand("SELECT * FROM Filme WHERE filme.Id = @movieid", conn); //A query em si         
                 cmd.Parameters.AddWithValue("movieid", movieid);
                 dr = cmd.ExecuteReader();
 
@@ -139,8 +139,8 @@ namespace CeuEscuro.DAL
                     movie.Titulo = dr["Titulo"].ToString();
                     movie.Produtora = dr["Produtora"].ToString();
                     movie.UrlImg = dr["UrlImg"].ToString();
-                    movie.Classificacao_Id = dr["DescricaoClassificacao"].ToString();
-                    movie.Genero_Id = dr["descricao"].ToString();
+                    movie.Classificacao_Id = dr["Classificacao_Id"].ToString();
+                    movie.Genero_Id = dr["Genero_Id"].ToString();
                 }
                
                 return movie;

@@ -5,11 +5,26 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Céu Escuro</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="../resource/Style.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="menu">
+        <nav>
+            <asp:Image ID="senaclogo" runat="server" src="../src/senaclogo.png" />
+            <ul class="menuInner">
+                <li><img src="../src/senaclogo.png"></li>
+                <li><a href="User.aspx">User</a></li>
+                <li><a href="Filme.aspx">Filme</a></li>
+                <li><a href="../Login.aspx">Login</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    <%--<header>
+    </header>--%>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
