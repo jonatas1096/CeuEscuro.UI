@@ -13,24 +13,31 @@
 <body>
     <div class="menu">
         <nav>
-            <asp:Image ID="senaclogo" runat="server" src="../src/senaclogo.png" />
             <ul class="menuInner">
-                <li><img src="../src/senaclogo.png"></li>
-                <li><a href="User.aspx">User</a></li>
-                <li><a href="Filme.aspx">Filme</a></li>
-                <li><a href="../Login.aspx">Login</a></li>
+            <asp:Image ID="senaclogo" runat="server" src="../src/senaclogo.png" />
+                <li><a class="aHeader" href="User.aspx">User</a></li>
+                <li><a class="aHeader" href="Filme.aspx">Filme</a></li>
+                <li><a class="aHeader" href="../Login.aspx">Login</a></li>
             </ul>
         </nav>
 
     </div>
-    <%--<header>
-    </header>--%>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+
+    <div class="footer">
+        <footer>
+            <ul class="footerInner">
+                <asp:Image ID="copyrightLogo" runat="server" src="../src/Copyright.png" />
+                <li>Copyright &copy all rights reserved 2024</li>
+                <li>Powered by "Beya".</li>
+            </ul>
+        </footer>
+    </div>
 </body>
 
   

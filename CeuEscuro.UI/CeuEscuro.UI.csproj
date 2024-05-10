@@ -126,6 +126,7 @@
     <Content Include="resource\script.js" />
     <Content Include="resource\Style.css" />
     <Content Include="User\Consulta.aspx" />
+    <Content Include="User\ConsultaFilme.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="User\Consulta.aspx.designer.cs">
       <DependentUpon>Consulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ConsultaFilme.aspx.cs">
+      <DependentUpon>ConsultaFilme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ConsultaFilme.aspx.designer.cs">
+      <DependentUpon>ConsultaFilme.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\ConsultaUser.Master.cs">
       <DependentUpon>ConsultaUser.Master</DependentUpon>

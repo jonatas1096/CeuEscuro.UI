@@ -21,17 +21,51 @@ body {
        
 }
 
-header {
-    height: 10vh;
+
+/* HEADER */
+
+.menuInner {
+    height: 9vh;
     width: 100%;
     padding: 0px;
     margin: 0px;
-    background-color: white;
+    background-color: #333;
     display: flex;
     align-items: center;
     justify-content: start;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    position: fixed;
+/*    border: solid red 2px;
+*/}
+
+.menuInner a{
+    font-size: 1.3em;
+    text-decoration: none;
+    color: white;
 }
+
+.menuInner a:hover{
+    font-size: 1.5em;
+    color: #EDA113;
+    transition: .3s;
+}
+
+.menu {
+    height: 10vh;
+    margin: 0px;
+}
+
+
+#senaclogo {
+    height: 8vh;
+    width: 16vh;
+    margin: 0px;
+    margin-left: 3vh;
+}
+
+
+
+/* HEADER ACIMA */
+
 
 #containerLogin {
     background-image: url('../src/newyork4.jpg');
@@ -57,11 +91,6 @@ header {
     border-radius: 25px;
 }
 
-#senaclogo {
-    height: 8vh;
-    width: 16vh;
-    margin-left: 3vh;
-}
 
 
 h1{
@@ -71,13 +100,15 @@ h1{
 
 ul {
     padding: 0px;
-    margin: 0px
-
+    margin: 0px;    
 }
 li {
     list-style-type: none;
+    margin: 0px;
     margin: 2vh;
 }
+
+
 
 #txtEmail, #txtSenha {
     height: 3vh;
@@ -109,31 +140,82 @@ li {
 
 /* USER */
 
-bodyUser {
+#bodyUser {
     background-image: url('../src/userbackground.jpg');
+    height: 100vh;
+    width: 100%;
+    margin: 0;
 }
 
 .containerUser {
-    margin: 2vh;
+    padding: 2.3vh;
 }
 
-table{
+
+.containerUser input[type=text]{
+    line-height: 3vh;
+}
+
+.containerUser input[type=submit]{
+    width: 6vh;
+    line-height: 8vh;
+}
+
+.containerUser input:hover {
+}
+
+table {
     width: 100%;
     text-align: center;
+    background-color: white;
 }
 
 th {
     background-color: #333;
     color: white;
     line-height: 4vh;
-
 }
+
+th:hover {
+    background-color: #EDA113;
+    transition: .3s;
+}
+
 
 tr:hover {
-    background-color: #F1F1F1; 
+    background-color: #E8E8E8;
+    transition: .3s;
 }
 
-
+#gv1 td{
+    border: solid red 2px;
+}
 
 
 /* USER ACIMA*/
+
+
+/* FOOTER */
+.footer{
+    width: 100%;
+    height: 7vh;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+.footerInner{
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#copyrightLogo{
+    height: 4vh;
+    width: 4vh;
+}
+
+/* FOOTER */
